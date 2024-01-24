@@ -91,7 +91,7 @@ func main() {
 			fmt.Println("Fehler beim json Kodieren")
 			return
 		}
-		filename := AllMonths[i].Name
+		filename := "months/" + AllMonths[i].Name
 		err = saveToFile(filename, jsonData)
 		if err != nil {
 			fmt.Println("Fehler beim Speichern")
