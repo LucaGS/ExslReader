@@ -4,6 +4,7 @@ import (
 	Month_Package "ExslReaderv2/Month"
 	"fmt"
 	"os"
+	"path/filepath"
 	"text/template"
 )
 
@@ -29,13 +30,14 @@ func GenerateTemplate(months *[]Month_Package.Month) (templates []string) {
 	return
 }
 func FillTemplates(months *[]Month_Package.Month, templates *[]string) {
-	for i := 0; i < len(*templates); i++ {
+	for i := 0; i < len(*templates)-1; i++ {
 		templ, err := template.New("monthTemplate").Parse((*templates)[i])
 		if err != nil {
 			fmt.Println(err)
 		}
 		monthData := (*months)[i]
-		file, err := os.Create(monthData.Name)
+		outputPath := filepath.Join("HtmlMonths", monthData.Name)
+		file, err := os.Create(outputPath)
 		if err != nil {
 			fmt.Println(err)
 		}
