@@ -85,7 +85,7 @@ func main() {
 		fmt.Printf("\nMonat: %v ,Tage %v durchschnitt %v\n", AllMonths[i].Name, AllMonths[i].Days, AllMonths[i].AvgTemp)
 	}
 	//Monate als json Speichern
-	for i := 0; i < len(AllMonths); i++ {
+	for i := 0; i < len(AllMonths)-1; i++ {
 		jsonData, err := json.MarshalIndent(AllMonths[i], "", "    ")
 		if err != nil {
 			fmt.Println("Fehler beim json Kodieren")
@@ -100,6 +100,9 @@ func main() {
 		}
 		fmt.Println("JSON-Daten erfolgreich in", filename, "gespeichert.")
 	}
+	//Implementierung der Visualisierung
+	//templates := Visuals_Package.GenerateTemplate(&AllMonths)
+	//fmt.Println(templates)
 
 }
 func saveToFile(dateiname string, daten []byte) error {
