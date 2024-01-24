@@ -7,10 +7,9 @@ import (
 	"text/template"
 )
 
-func generateTemplate(months *[]Month_Package.Month) []string {
-	templates := make([]string, 0)
+func GenerateTemplate(months *[]Month_Package.Month) (templates []string) {
 	for _, v := range *months {
-		fmt.Println("append template for %v", v)
+		fmt.Printf("append template for %v", v)
 		templates = append(templates, `<!DOCTYPE html>
 		<html>
 		
@@ -27,7 +26,7 @@ func generateTemplate(months *[]Month_Package.Month) []string {
 		</html>
 		`)
 	}
-	return templates
+	return
 }
 func FillTemplates(months *[]Month_Package.Month, templates *[]string) {
 	for i := 0; i < len(*templates); i++ {
