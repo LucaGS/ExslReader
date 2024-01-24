@@ -21,7 +21,7 @@ func GenerateTemplate(months *[]Month_Package.Month) (templates []string) {
 		<body>
 			<h1>Monat {{.Name}}!</h1>
 			<p>days: {{.Days}}</p>
-			<p>Age: {{.AvgTemp}}</p>
+			<p>Avgerage Temp: {{.AvgTemp}}</p>
 		</body>
 		
 		</html>
