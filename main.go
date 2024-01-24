@@ -2,6 +2,7 @@ package main
 
 import (
 	Month_Package "ExslReaderv2/Month"
+	Visuals_Package "ExslReaderv2/Visuals"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -101,8 +102,9 @@ func main() {
 		fmt.Println("JSON-Daten erfolgreich in", filename, "gespeichert.")
 	}
 	//Implementierung der Visualisierung
-	//templates := Visuals_Package.GenerateTemplate(&AllMonths)
-	//fmt.Println(templates)
+	templates := Visuals_Package.GenerateTemplate(&AllMonths)
+	Visuals_Package.FillTemplates(&AllMonths, &templates)
+	fmt.Println(templates)
 
 }
 func saveToFile(dateiname string, daten []byte) error {
