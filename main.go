@@ -13,6 +13,14 @@ import (
 )
 
 func main() {
+	err := os.Mkdir("HtmlMonths", 0755)
+	if err != nil {
+		fmt.Println("HtmlMonths exists already")
+	}
+	error := os.Mkdir("months", 0755)
+	if error != nil {
+		fmt.Println("months already exists")
+	}
 	//Einlesen von xlsx Datei
 	AllMonths := make([]Month_Package.Month, 13)
 	totalCount := 0.0
@@ -65,7 +73,7 @@ func main() {
 			currentMonth := parsedTime.Month()
 			currentDay := int(parsedTime.Day())
 			currentHour := int(parsedTime.Hour())
-			//Wenn noch kein Name vorhanden ist Dann erstelle neuen Monat noch testen
+			//Wenn noch kein Name vorhanden ist Dann erstelle neuen Monat
 			if len(AllMonths[int(currentMonth)-1].Name) == 0 {
 				fmt.Printf("Es ist ein neuer Monat: %v\n", currentMonth)
 				AllMonths[int(currentMonth)-1] = *Month_Package.NewMonth(currentMonth.String())
